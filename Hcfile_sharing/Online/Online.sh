@@ -1,5 +1,5 @@
-ONLINEVERSION=202205291
-ONLINENAME="2022-05-29-1"
+ONLINEVERSION=2024081302
+ONLINENAME="2024-08-13-02"
 RULES="
 #贡献在线规则，联系：
 #QQ：2536554304
@@ -16,8 +16,8 @@ RULES="
 [QQ|下载|应用数据路径/com.tencent.mobileqq/Tencent/QQfile_recv]
 [QQ|下载2|根路径/Tencent/QQfile_recv]
 [QQ|图片|应用数据路径/com.tencent.mobileqq/Tencent/QQ_Images]
-[QQ|图片2|根路径/tencent/qq_images]
-[QQ|视频|根路径/tencent/QQ_Video]
+[QQ|图片2|根路径/Tencent/qq_images]
+[QQ|视频|根路径/Tencent/QQ_Video]
 
 #TIM 贡献：845158117
 [TIM|下载|应用数据路径/com.tencent.tim/Tencent/TIMfile_recv]
@@ -29,10 +29,11 @@ RULES="
 [微信|下载2|根路径/tencent/MicroMsg/Download]
 
 #官方电报
-[电报|视频|应用数据路径/org.telegram.messenger.web/files/Telegram/Telegram Video]
-[电报|图片|应用数据路径/org.telegram.messenger.web/files/Telegram/Telegram Images]
-[电报|文件|应用数据路径/org.telegram.messenger.web/files/Telegram/Telegram Documents]
-[电报|音频|应用数据路径/org.telegram.messenger.web/files/Telegram/Telegram Audio]
+[电报|视频|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Video]
+[电报|图片|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Images]
+[电报|文档|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Documents]
+[电报|文件|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Files]
+[电报|音频|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Audio]
 
 #云盘下载
 [云盘|百度云|根路径/BaiduNetdisk]
@@ -42,7 +43,7 @@ RULES="
 [云盘|腾讯微云|根路径/微云保存的文件]
 [云盘|曲奇盘|根路径/quqi/pan/download]
 [云盘|和彩云网盘|根路径/M_Cloud/download]
-[云盘|文叔叔|根路径/Wenshushu/Download]#大白云
+[云盘|文叔叔|根路径/Wenshushu/Download]
 [云盘|大白云|根路径/大白·Cloud]
 [云盘|磁力云|根路径/happy.cloud]
 
@@ -253,37 +254,9 @@ download() {
 }
 server() {
 case "$N" in
-	"2")
-		SERVER="GitHub"
-		URL="https://raw.githubusercontent.com/TimeRainStarSky/MMPack/modules/Hcfile_sharing"
-		;;
 	"1")
-		SERVER="Gitee"
-		URL="https://gitee.com/TimeRainStarSky/MMPack/raw/modules/Hcfile_sharing"
-		;;
-	"3")
-		SERVER="Agit"
-		URL="https://agit.ai/TimeRainStarSky/MMPack/raw/branch/modules/Hcfile_sharing"
-		;;
-	"4")
-		SERVER="GitLab"
-		URL="https://gitlab.com/TimeRainStarSky/MMPack/raw/modules/Hcfile_sharing"
-		;;
-	"5")
-		SERVER="Coding"
-		URL="https://trss.coding.net/p/MMPack/d/MMPack/git/raw/modules/Hcfile_sharing"
-		;;
-	"6")
-		SERVER="Aliyun"
-		URL="https://code.aliyun.com/TimeRainStarSky/MMPack/raw/modules/Hcfile_sharing"
-		;;
-	"7")
-		SERVER="Bitbucket"
-		URL="https://bitbucket.org/TimeRainStarSky/MMPack/raw/modules/Hcfile_sharing"
-		;;
-	"8")
-		SERVER="Jsdelivr"
-		URL="https://cdn.jsdelivr.net/gh/TimeRainStarSky/MMPack@modules/Hcfile_sharing"
+		SERVER="GitHub"
+		URL="https://raw.githubusercontent.com/lucky-cry/MMPack/modules/Hcfile_sharing"
 		;;
 	esac
 }
