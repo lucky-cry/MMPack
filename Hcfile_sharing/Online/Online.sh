@@ -1,9 +1,11 @@
-ONLINEVERSION=2024081302
-ONLINENAME="2024-08-13-02"
+ONLINEVERSION=202409011
+ONLINENAME="2024-09-01-1"
 RULES="
 #贡献在线规则，联系：
-#QQ：2536554304
-#酷安：时雨丶星空
+#QQ：2536554304(技术大佬)
+#酷安：时雨丶星空(技术大佬)
+#QQ：739270050(二改,已得到原作者同意进行修改分享)
+#酷安：帅气的小懒猫(二改,已得到原作者同意进行修改分享)
 
 #系统
 [模块详细|配置|根路径/Android/Hcfile_sharing]
@@ -26,14 +28,20 @@ RULES="
 
 #微信
 [微信|下载|应用数据路径/com.tencent.mm/MicroMsg/Download]
-[微信|下载2|根路径/tencent/MicroMsg/Download]
+[微信|下载2|根路径/Tencent/MicroMsg/Download]
 
 #官方电报
+[电报|文件|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Files]
 [电报|视频|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Video]
 [电报|图片|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Images]
 [电报|文档|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Documents]
-[电报|文件|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Files]
 [电报|音频|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Audio]
+
+#Nagram
+[Nagram|视频|应用数据路径/xyz.nextalone.nagram/files/videos]
+[Nagram|图片|应用数据路径/xyz.nextalone.nagram/files/images]
+[Nagram|文件|应用数据路径/xyz.nextalone.nagram/files/documents]
+[Nagram|音频|应用数据路径/xyz.nextalone.nagram/files/audios]
 
 #云盘下载
 [云盘|百度云|根路径/BaiduNetdisk]
@@ -43,7 +51,7 @@ RULES="
 [云盘|腾讯微云|根路径/微云保存的文件]
 [云盘|曲奇盘|根路径/quqi/pan/download]
 [云盘|和彩云网盘|根路径/M_Cloud/download]
-[云盘|文叔叔|根路径/Wenshushu/Download]
+[云盘|文叔叔|根路径/Wenshushu/Download]#大白云
 [云盘|大白云|根路径/大白·Cloud]
 [云盘|磁力云|根路径/happy.cloud]
 
@@ -193,9 +201,8 @@ download_module() {
 	eval geturl "$URL/version" >>"$ANDROIDH/在线规则日志.log" 2>&1 || abort_module_update "下载失败"
 	NEW="$(sed -n s/^version=//p version)"
 	NEWNAME="$(sed -n s/^name=//p version)"
-	MD5="$(sed -n s/^md5=//p version)"
 	rm -rf version
-	[ -n "$NEW" ] && [ -n "$NEWNAME" ] && [ -n "$MD5" ] || abort_module_update "下载文件版本信息缺失"
+	[ -n "$NEW" ] && [ -n "$NEWNAME" ] || abort_module_update "下载文件版本信息缺失"
 	VERSION="$(sed -n s/^versionCode=//p "$MODDIR/module.prop")"
 	NAME="$(sed -n s/^version=//p "$MODDIR/module.prop")"
 	echolog "
@@ -207,7 +214,6 @@ download_module() {
 
   开始下载更新"
 		eval geturl "$URL/install.sh" >>"$ANDROIDH/在线规则日志.log" 2>&1 || abort_module_update "下载失败"
-		[ "$(md5sum "install.sh" | head -c 32)" != "$MD5" ] && abort_module_update "下载文件校验错误"
 		echolog "
 - 模块下载完成，开始安装"
 		sh "install.sh" >> "$ANDROIDH/在线规则日志.log" 2>&1
@@ -225,9 +231,8 @@ download() {
 	eval geturl "$URL/Online/version" >>"$ANDROIDH/在线规则日志.log" 2>&1 || abort_update "下载失败"
 	NEW="$(sed -n s/^version=//p version)"
 	NEWNAME="$(sed -n s/^name=//p version)"
-	MD5="$(sed -n s/^md5=//p version)"
 	rm -rf version
-	[ -n "$NEW" ] && [ -n "$NEWNAME" ] && [ -n "$MD5" ] || abort_update "下载文件版本信息缺失"
+	[ -n "$NEW" ] && [ -n "$NEWNAME" ] || abort_update "下载文件版本信息缺失"
 	echolog "
   当前版本号：$ONLINEVERSION
   最新版本号：$NEW"
@@ -237,7 +242,6 @@ download() {
 
   开始下载更新"
 		eval geturl "$URL/Online/Online.sh" >>"$ANDROIDH/在线规则日志.log" 2>&1 || abort_update "下载失败"
-		[ "$(md5sum "Online.sh" | head -c 32)" != "$MD5" ] && abort_update "下载文件校验错误"
 		echolog "
 - 脚本更新完成，开始执行"
 		mv "$FILE" "$FILE.bak"
@@ -254,9 +258,13 @@ download() {
 }
 server() {
 case "$N" in
-	"1")
+	"2")
 		SERVER="GitHub"
 		URL="https://raw.githubusercontent.com/lucky-cry/MMPack/modules/Hcfile_sharing"
+		;;
+	"1")
+		SERVER="Gitee"
+		URL="https://gitee.com/lucky__cat/MMPack/raw/modules/Hcfile_sharing"
 		;;
 	esac
 }

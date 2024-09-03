@@ -13,8 +13,8 @@ echolog "———————————————————————�
  Hchai - 目录定向挂载 在线脚本
    $ONLINENAME ($ONLINEVERSION)
 ———————————————————————————————
-       作者：时雨🌌星空
-
+        作者：时雨🌌星空
+        二改：帅气的小懒猫
 - 正在检查更新"
 abort() {
 	echolog "
@@ -76,9 +76,8 @@ download_module() {
 	eval geturl "$URL/version" >>"$ANDROIDH/在线规则日志.log" 2>&1 || abort_module_update "下载失败"
 	NEW="$(sed -n s/^version=//p version)"
 	NEWNAME="$(sed -n s/^name=//p version)"
-	MD5="$(sed -n s/^md5=//p version)"
 	rm -rf version
-	[ -n "$NEW" ] && [ -n "$NEWNAME" ] && [ -n "$MD5" ] || abort_module_update "下载文件版本信息缺失"
+	[ -n "$NEW" ] && [ -n "$NEWNAME" ] || abort_module_update "下载文件版本信息缺失"
 	VERSION="$(sed -n s/^versionCode=//p "$MODDIR/module.prop")"
 	NAME="$(sed -n s/^version=//p "$MODDIR/module.prop")"
 	echolog "
@@ -90,7 +89,6 @@ download_module() {
 
   开始下载更新"
 		eval geturl "$URL/install.sh" >>"$ANDROIDH/在线规则日志.log" 2>&1 || abort_module_update "下载失败"
-		[ "$(md5sum "install.sh" | head -c 32)" != "$MD5" ] && abort_module_update "下载文件校验错误"
 		echolog "
 - 模块下载完成，开始安装"
 		sh "install.sh" >> "$ANDROIDH/在线规则日志.log" 2>&1
@@ -108,9 +106,8 @@ download() {
 	eval geturl "$URL/Online/version" >>"$ANDROIDH/在线规则日志.log" 2>&1 || abort_update "下载失败"
 	NEW="$(sed -n s/^version=//p version)"
 	NEWNAME="$(sed -n s/^name=//p version)"
-	MD5="$(sed -n s/^md5=//p version)"
 	rm -rf version
-	[ -n "$NEW" ] && [ -n "$NEWNAME" ] && [ -n "$MD5" ] || abort_update "下载文件版本信息缺失"
+	[ -n "$NEW" ] && [ -n "$NEWNAME" ] || abort_update "下载文件版本信息缺失"
 	echolog "
   当前版本号：$ONLINEVERSION
   最新版本号：$NEW"
@@ -120,7 +117,6 @@ download() {
 
   开始下载更新"
 		eval geturl "$URL/Online/Online.sh" >>"$ANDROIDH/在线规则日志.log" 2>&1 || abort_update "下载失败"
-		[ "$(md5sum "Online.sh" | head -c 32)" != "$MD5" ] && abort_update "下载文件校验错误"
 		echolog "
 - 脚本更新完成，开始执行"
 		mv "$FILE" "$FILE.bak"
@@ -137,9 +133,13 @@ download() {
 }
 server() {
 case "$N" in
-	"1")
+	"2")
 		SERVER="GitHub"
 		URL="https://raw.githubusercontent.com/lucky-cry/MMPack/modules/Hcfile_sharing"
+		;;
+	"1")
+		SERVER="Gitee"
+		URL="https://gitee.com/lucky__cat/MMPack/raw/modules/Hcfile_sharing"
 		;;
 	esac
 }
