@@ -1,5 +1,5 @@
-ONLINEVERSION=202409011
-ONLINENAME="2024-09-01-1"
+ONLINEVERSION=202409251
+ONLINENAME="2024-09-25-1"
 RULES="
 #贡献在线规则，联系：
 #QQ：2536554304(技术大佬)
@@ -31,11 +31,18 @@ RULES="
 [微信|下载2|根路径/Tencent/MicroMsg/Download]
 
 #官方电报
-[电报|文件|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Files]
-[电报|视频|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Video]
-[电报|图片|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Images]
-[电报|文档|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Documents]
-[电报|音频|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Audio]
+[电报|文件|应用数据路径/org.telegram.messenger.web/files/Telegram/Telegram Files]
+[电报|视频|应用数据路径/org.telegram.messenger.web/files/Telegram/Telegram Video]
+[电报|图片|应用数据路径/org.telegram.messenger.web/files/Telegram/Telegram Images]
+[电报|文档|应用数据路径/org.telegram.messenger.web/files/Telegram/Telegram Documents]
+[电报|音频|应用数据路径/org.telegram.messenger.web/files/Telegram/Telegram Audio]
+
+#谷歌版电报
+[谷歌电报|文件|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Files]
+[谷歌电报|视频|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Video]
+[谷歌电报|图片|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Images]
+[谷歌电报|文档|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Documents]
+[谷歌电报|音频|应用数据路径/org.telegram.messenger/files/Telegram/Telegram Audio]
 
 #Nagram
 [Nagram|视频|应用数据路径/xyz.nextalone.nagram/files/videos]
@@ -45,13 +52,15 @@ RULES="
 
 #云盘下载
 [云盘|百度云|根路径/BaiduNetdisk]
+[云盘|百度云青春|根路径/BaiduNetdiskYoung]
+[云盘|123云盘|根路径/123云盘]
 [云盘|百度云缓存|应用数据路径/com.baidu.netdisk/cache/preview/BaiduNetdisk/]
 [云盘|阿里云盘|根路径/AliYunPan]
 [云盘|天翼云盘|根路径/ecloud]
 [云盘|腾讯微云|根路径/微云保存的文件]
 [云盘|曲奇盘|根路径/quqi/pan/download]
 [云盘|和彩云网盘|根路径/M_Cloud/download]
-[云盘|文叔叔|根路径/Wenshushu/Download]#大白云
+[云盘|文叔叔|根路径/Wenshushu/Download]
 [云盘|大白云|根路径/大白·Cloud]
 [云盘|磁力云|根路径/happy.cloud]
 
