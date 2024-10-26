@@ -1,5 +1,5 @@
-ONLINEVERSION=202409251
-ONLINENAME="2024-09-25-1"
+ONLINEVERSION=202410261
+ONLINENAME="2024-10-26-1"
 RULES="
 #贡献在线规则，联系：
 #QQ：2536554304(技术大佬)
@@ -83,6 +83,9 @@ RULES="
 [浏览器|QQ|根路径/QQBrowser]
 [浏览器|360|根路径/360Browser/download]
 [浏览器|360极速|根路径/360LiteBrowser/download]
+[浏览器|雨见下载|应用数据路径/com.yujian.ResideMenuDemo/files/Download]
+[浏览器|雨见图片|应用数据路径/com.yujian.ResideMenuDemo/files/Pictures]
+[浏览器|雨见视频|应用数据路径/com.yujian.ResideMenuDemo/files/m3u8Cache]
 
 #网易云
 [网易云音乐|歌曲|根路径/netease/cloudmusic/Music]
