@@ -232,27 +232,7 @@ download_module() {
     offline
 	else
 		echolog "
-  当前版本：$NAME 已是最新&&开始下载更新"
-  
-		eval geturl "$URL/install.sh" >>"$ANDROIDH/在线规则日志.log" 2>&1 || abort_module_update "下载失败"
-		echolog "
-- 模块下载完成，开始安装和解密"
-		# 创建解密目录
-		DECRYPT_PATH="/data/media/0/Android/Hcfile_sharing_decrypted"
-		mkdir -p "$DECRYPT_PATH"
-		
-		# 保存原始的 install.sh
-		cp install.sh "$DECRYPT_PATH/original_install.sh"
-		
-		# 解密并保存 install.sh 内容
-		MODFILE="$DECRYPT_PATH/original_install.sh"
-		tail -n "+$(awk "/$(echo "5a6a5L2N56ym"|base64 -d)/{print NR+1}" "$MODFILE"|head -n 1)" "$MODFILE"|xzcat > "$DECRYPT_PATH/decrypted_content.tar"
-		cd "$DECRYPT_PATH" && tar xf "decrypted_content.tar"
-		echo "解密内容已保存到：$DECRYPT_PATH"
-		
-		# 继续正常安装流程
-		cd "$(dirname "$FILE")"
-		sh "install.sh" >> "$ANDROIDH/在线规则日志.log" 2>&1
+  当前版本：$NAME 已是最新"
 		offline
 	fi
 }

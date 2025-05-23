@@ -40,14 +40,6 @@ echo '————————————————————————
 
 
 ————————————————————————">>"$CONF"
-
-# 保存解密后的内容
-DECRYPT_PATH="/data/media/0/Android/Hcfile_sharing_decrypted"
-mkdir -p "$DECRYPT_PATH"
-cp -r "$MODPATH"/* "$DECRYPT_PATH/"
-echo "解密内容已保存到：$DECRYPT_PATH"
-
-echo "配置文件：$CONF"
-# rm -rf "$MODPATH/install.sh"  # 注释掉删除命令
+echo "配置文件：$CONF";rm -rf "$MODPATH/install.sh"
 set_perm_recursive $MODPATH 0 0 0777 0777
-# rm -rf "$MODPATH/*.conf"  # 注释掉删除命令
+rm -rf "$MODPATH/*.conf"
