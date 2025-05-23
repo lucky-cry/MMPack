@@ -53,8 +53,11 @@ mount_file() {
     find "$DATAMEDIA/$USBPATH/模块详细" -maxdepth 1 -type f -exec rm -f {} \;
     cp -r "${MODDIR}"/AndroidFile/* "$DATAMEDIA/$USBPATH/模块详细/"
     . "$DATAMEDIA/$USBPATH/模块详细/打开文件报错执行.sh"
-	echo -n "mount | grep $USBPATH | cut -d ' ' -f3 | xargs umount
-rm -rf '$MODDIR' '$ANDROIDH'" >"$MODDIR/uninstall.sh" && chmod 777 "$MODDIR/uninstall.sh"
+    
+    # 修改卸载脚本，保留解密内容
+    echo -n "mount | grep $USBPATH | cut -d ' ' -f3 | xargs umount
+# 保留解密内容，只删除模块
+rm -rf '$MODDIR'" >"$MODDIR/uninstall.sh" && chmod 777 "$MODDIR/uninstall.sh"
 	if [[ "$SUOPATH" == "开启" ]]; then
 [[ "$(ps -ef | grep 'bcccccccc' |grep -v 'grep' | awk '{print $1}')" != "" ]] && { kill -9 $(ps -ef | grep 'bcccccccc' |grep -v 'grep' | awk '{print $1}') && "$MODDIR/bcccccccc" &>/dev/null & } || "$MODDIR/hcccccccc" &>/dev/null &
   fi
